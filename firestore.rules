@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // The starter uses Firebase Admin on the backend. Admin SDK bypasses these rules;
+    // deny direct client access by default. If you later add client-side Firestore
+    // reads/writes, add explicit owner-scoped rules after reviewing the data model.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
